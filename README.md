@@ -10,6 +10,10 @@ AgroSync is a modern crop classification and recommendation system designed for 
 - **Data-Driven Insights:** Utilize CSV datasets to drive informed decisions.
 - **Cloud-Ready Deployment:** Easily deploy with Heroku using the included `Procfile`.
 
+## Live Demo 🌐
+
+Try AgroSync live here: [https://agrosync.onrender.com](https://agrosync.onrender.com)
+
 ## Project Structure 🗂️
 
 - **`app.py`**: Main application file that runs the web server.
@@ -82,7 +86,8 @@ We welcome contributions! To contribute:
 4. Open a pull request with a detailed description 📬
 
 ## License 📄
-It'a free to use the ml models
+Open to everybody
+For more details on usage, don't hesitate to get in touch with the repository owner.
 
 ## Acknowledgements 🙏
 
