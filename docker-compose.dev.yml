@@ -1,0 +1,99 @@
+version: '3.8'
+
+# Development Docker Compose Configuration
+# Use this for local development with hot-reload
+
+services:
+  # PostgreSQL Database for Development
+  postgres:
+    image: postgres:14
+    container_name: agroai-postgres-dev
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=agroai
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data-dev:/var/lib/postgresql/data
+    networks:
+      - agroai-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  # Frontend - Next.js with Hot Reload
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: agroai-frontend-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+      - NODE_ENV=development
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - agroai-network
+    command: npm run dev
+
+  # Backend - Node.js with Nodemon
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: agroai-backend-dev
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/agroai
+      - JWT_SECRET=dev-secret-key-change-in-production
+      - ML_SERVICE_URL=http://ml-service:8000
+      - PYTHON_API_URL=http://ml-service:8000
+      - CORS_ORIGIN=http://localhost:3000
+      - ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - /app/dist
+      - backend-uploads:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - agroai-network
+    command: npm run dev
+
+  # ML Service - Python with Auto Reload
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile.dev
+    container_name: agroai-ml-service-dev
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./ml-service:/app
+      - ml-uploads:/app/uploads
+    networks:
+      - agroai-network
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+networks:
+  agroai-network:
+    driver: bridge
+
+volumes:
+  postgres-data-dev:
+  backend-uploads:
+  backend-db:
+  ml-uploads:

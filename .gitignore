@@ -1,0 +1,247 @@
+# Dependencies
+node_modules/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.installed.cfg
+*.egg
+*.egg-info/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+
+# Environment variables (SENSITIVE)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+backend/.env
+frontend/.env
+frontend/.env.local
+ml-service/.env
+*.env
+.envrc
+
+# Build outputs
+dist/
+build/
+.next/
+.turbo/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Backend build
+backend/dist/
+backend/build/
+
+# Frontend build
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.turbo/
+
+# Logs (can contain sensitive data)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+*.log.*
+backend/logs/
+frontend/logs/
+ml-service/logs/
+
+# Database files (SENSITIVE)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+prisma/*.db
+prisma/*.db-journal
+
+# Uploads and temporary files (may contain user data)
+uploads/
+temp/
+tmp/
+backend/uploads/
+ml-service/uploads/
+*.tmp
+*.temp
+
+# IDE and editor files
+.vscode/
+.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.tmproj
+.vscode-test
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+.hypothesis/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Secrets and sensitive files (CRITICAL)
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+secrets/
+.env.backup
+.secrets
+credentials.json
+serviceAccountKey.json
+firebase-adminsdk.json
+
+# Docker sensitive files
+.dockerignore.local
+docker-compose.override.yml
+
+# ML Models (large files, store separately)
+*.h5
+*.pkl
+*.joblib
+*.model
+*.weights
+models/disease/*.pth
+models/crop/*.pkl
+models/fertilizer/*.pkl
+models/yield_prediction/*.json
+
+# Cache directories
+.cache/
+.parcel-cache/
+.npm/
+.eslintcache
+.stylelintcache
+*.cache
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js specific
+.next/
+.vercel
+.turbo
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnp
+.pnp.js
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+prisma/migrations/**/migration.sql.backup
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*~
+
+# Miscellaneous
+.DS_Store
+*.pem
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Production secrets (CRITICAL)
+.env.production.local
+config/production.json
+config/secrets.json
+
+# JWT and auth secrets
+jwt-private.key
+jwt-public.key
+
+# Database backups
+*.sql
+*.dump
+backups/
+
+# Compressed files that might contain sensitive data
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z

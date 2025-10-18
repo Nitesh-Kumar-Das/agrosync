@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# Logs (SENSITIVE)
+*.log
+logs/
+
+# Environment variables (CRITICAL - SENSITIVE)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+*.env
+
+# Database files (SENSITIVE)
+prisma/*.db
+prisma/*.db-journal
+*.sqlite
+*.sqlite3
+prisma/dev.db
+prisma/migrations/**/migration.sql.backup
+
+# Uploads (user data - SENSITIVE)
+uploads/
+temp/
+tmp/
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# IDE
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Secrets (CRITICAL)
+secrets/
+*.pem
+*.key
+jwt-private.key
+jwt-public.key
+
+# Cache
+.cache/
+.eslintcache
+
+# Backup files
+*.bak
+*.backup

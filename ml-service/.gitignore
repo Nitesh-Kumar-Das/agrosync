@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables (CRITICAL - SENSITIVE)
+.env
+.env.local
+.env.production
+*.env
+
+# Logs (may contain sensitive data)
+*.log
+logs/
+
+# Uploads (user data - SENSITIVE)
+uploads/
+temp/
+tmp/
+
+# ML Models (large files)
+*.h5
+*.pkl
+*.joblib
+*.model
+*.weights
+*.pth
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Cache
+.cache/
+__pycache__/
+*.pyc
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Secrets (CRITICAL)
+secrets/
+*.pem
+*.key
+
+# Backup files
+*.bak
+*.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

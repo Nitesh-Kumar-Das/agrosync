@@ -1,0 +1,17 @@
+# ML Service .dockerignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.git
+.gitignore
+README.md
+.vscode
+.idea
+.DS_Store
+*.log
+uploads
+env
+venv
+*.egg-info
