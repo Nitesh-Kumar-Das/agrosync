@@ -165,7 +165,7 @@ An AI-powered platform for smart farming that provides crop recommendations, dis
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/agroai.git
+   git clone https://github.com/Nitesh-Kumar-Das/agrosync.git
    cd agroai
    ```
 
@@ -196,141 +196,6 @@ An AI-powered platform for smart farming that provides crop recommendations, dis
    - ML Service: http://localhost:8000
    - API Docs: http://localhost:8000/docs
 
-### Manual Setup (Development)
-
-See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for detailed local setup instructions.
-
-## 💻 Usage
-
-### 1. Create an Account
-- Navigate to http://localhost:3000/signup
-- Enter your name, email, and password
-- Password must be 8+ characters with uppercase, lowercase, and number
-
-### 2. Login
-- Go to http://localhost:3000/login
-- Enter your credentials
-- You'll be redirected to the dashboard
-
-### 3. Get Crop Recommendations
-- Navigate to "Crop Recommendation"
-- Enter soil parameters (N, P, K values)
-- Add environmental data (temperature, humidity, pH, rainfall)
-- Click "Get Recommendation"
-- View suggested crop with confidence score
-
-### 4. Detect Plant Diseases
-- Go to "Disease Detection"
-- Upload a clear image of the affected leaf
-- Supported formats: JPG, PNG (max 10MB)
-- View disease identification and treatment recommendations
-
-### 5. Get Fertilizer Suggestions
-- Navigate to "Fertilizer Recommendation"
-- Enter soil composition and crop details
-- Add environmental conditions
-- Receive personalized fertilizer recommendations
-
-### 6. Predict Crop Yield
-- Go to "Yield Prediction"
-- Enter location (state, district)
-- Select season and crop
-- Add area and rainfall data
-- Get estimated yield in tonnes
-
-## 📚 API Documentation
-
-### Authentication Endpoints
-
-#### POST `/api/auth/signup`
-Register a new user
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "SecurePass123"
-}
-```
-
-#### POST `/api/auth/login`
-Login existing user
-```json
-{
-  "email": "john@example.com",
-  "password": "SecurePass123"
-}
-```
-
-### Prediction Endpoints
-
-All prediction endpoints require JWT authentication via `Authorization: Bearer <token>` header.
-
-#### POST `/api/crop/predict`
-Get crop recommendation
-```json
-{
-  "nitrogen": 90,
-  "phosphorus": 42,
-  "potassium": 43,
-  "temperature": 20.87,
-  "humidity": 82,
-  "ph": 6.5,
-  "rainfall": 202.93
-}
-```
-
-#### POST `/api/disease/detect`
-Detect plant disease (multipart/form-data)
-```
-file: <image file>
-```
-
-#### POST `/api/fertilizer/predict`
-Get fertilizer recommendation
-```json
-{
-  "nitrogen": 37,
-  "phosphorus": 0,
-  "potassium": 0,
-  "temperature": 26,
-  "humidity": 52,
-  "moisture": 38,
-  "soilType": "Loamy",
-  "cropType": "Wheat"
-}
-```
-
-#### POST `/api/yield/predict`
-Predict crop yield
-```json
-{
-  "state": "Karnataka",
-  "district": "Bangalore",
-  "season": "Kharif",
-  "crop": "Rice",
-  "year": 2024,
-  "area": 100,
-  "rainfall": 250
-}
-```
-
-### ML Service Endpoints
-
-#### GET `/health`
-Health check for ML service
-```json
-{
-  "status": "healthy",
-  "models": {
-    "crop": "loaded",
-    "fertilizer": "loaded",
-    "yield": "loaded",
-    "disease": "loaded"
-  }
-}
-```
-
-Full API documentation available at: http://localhost:8000/docs (Swagger UI)
 
 ## 🤖 ML Models
 
@@ -438,56 +303,6 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/agroai
 PYTHON_API_URL=http://localhost:8000
 ```
 
-### Running Tests
-
-```bash
-# Backend tests
-cd backend
-npm test
-
-# Frontend tests
-cd frontend
-npm test
-
-# ML Service tests
-cd ml-service
-pytest
-```
-
-## 🚢 Deployment
-
-### Docker Production Deployment
-
-1. **Set production environment variables**
-   ```bash
-   # Generate a secure JWT secret
-   openssl rand -base64 48
-   
-   # Set in .env file
-   JWT_SECRET=<generated-secret>
-   ALLOWED_ORIGINS=https://yourdomain.com
-   ```
-
-2. **Build production images**
-   ```bash
-   docker compose build --no-cache
-   ```
-
-3. **Start services**
-   ```bash
-   docker compose up -d
-   ```
-
-4. **Setup reverse proxy (Nginx)**
-   See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for Nginx configuration
-
-### Cloud Deployment
-
-- **AWS**: EC2 + RDS + S3 (see [AWS_DEPLOYMENT.md](docs/AWS_DEPLOYMENT.md))
-- **Azure**: App Service + Database (see [AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md))
-- **GCP**: Cloud Run + Cloud SQL (see [GCP_DEPLOYMENT.md](docs/GCP_DEPLOYMENT.md))
-- **Heroku**: See [HEROKU_DEPLOYMENT.md](docs/HEROKU_DEPLOYMENT.md)
-
 ## 🔒 Security
 
 ### Implemented Security Features
@@ -505,19 +320,6 @@ pytest
 - ✅ **Distroless Docker Images** for minimal attack surface
 - ✅ **Non-root Containers** for privilege separation
 - ✅ **Security Audits** with automated scanning
-
-### Security Best Practices
-
-1. **Never commit** `.env` files to Git
-2. **Rotate JWT secrets** regularly in production
-3. **Use HTTPS** in production (Let's Encrypt)
-4. **Keep dependencies updated** (npm audit, pip check)
-5. **Monitor logs** for suspicious activity
-6. **Backup database** regularly
-7. **Implement rate limiting** on all endpoints
-8. **Validate all inputs** on client and server
-
-For detailed security information, see [SECURITY_AUDIT.md](SECURITY_AUDIT.md)
 
 ## 🤝 Contributing
 
@@ -538,15 +340,9 @@ We welcome contributions! Please follow these steps:
 - Ensure all tests pass
 - Keep PRs focused and small
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Authors
-
-- **Your Name** - Initial work - [@yourusername](https://github.com/yourusername)
+This project is open to be sourced by all.
 
 ## 🙏 Acknowledgments
 
@@ -554,14 +350,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Kaggle** for agricultural datasets
 - **FastAPI** and **Next.js** communities
 - **Open Source Contributors** who made this possible
-
-## 📞 Support
-
-- **Documentation**: [Wiki](https://github.com/yourusername/agroai/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/agroai/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/agroai/discussions)
-- **Email**: support@agroai.com
-
+- 
 ## 🗺 Roadmap
 
 ### Version 2.0 (Planned)
@@ -582,7 +371,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [x] Production deployment
 - [ ] CI/CD pipeline
 - [ ] Automated testing
-- [ ] Performance optimization
+- [ ] Performance optimisation
 
 ## 📊 Project Status
 
